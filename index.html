@@ -8,84 +8,277 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- FontAwesome Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <!-- Google Fonts (Cairo & Tajawal) -->
-    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;900&family=Tajawal:wght@400;500;700;900&display=swap" rel="stylesheet">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;900&display=swap" rel="stylesheet">
     
     <script>
         tailwind.config = {
             theme: {
                 extend: {
                     colors: {
-                        navy: {
-                            800: '#0B132B',
-                            900: '#0A1128',
-                            950: '#050A18',
-                        },
-                        brand: {
-                            blue: '#1C64F2',
-                            gold: '#F59E0B',
-                            goldHover: '#D97706',
-                            green: '#10B981'
-                        }
+                        navy: { 800: '#0B132B', 900: '#0A1128', 950: '#050A18' },
+                        brand: { blue: '#1C64F2', gold: '#F59E0B', goldHover: '#D97706' }
                     },
-                    fontFamily: {
-                        cairo: ['Cairo', 'sans-serif'],
-                        tajawal: ['Tajawal', 'sans-serif']
-                    }
+                    fontFamily: { cairo: ['Cairo', 'sans-serif'] }
                 }
             }
         }
     </script>
     <style>
-        body {
-            font-family: 'Cairo', 'Tajawal', sans-serif;
-            scroll-behavior: smooth;
-        }
+        body { font-family: 'Cairo', sans-serif; scroll-behavior: smooth; }
         .hero-bg {
             background: linear-gradient(135deg, rgba(10, 17, 40, 0.95) 0%, rgba(11, 19, 43, 0.85) 100%), 
                         url('https://images.unsplash.com/photo-1557597774-9d273605dfa9?auto=format&fit=crop&w=1920&q=80');
-            background-size: cover;
-            background-position: center;
+            background-size: cover; background-position: center;
         }
         .glass-card {
             background: rgba(255, 255, 255, 0.03);
             backdrop-filter: blur(10px);
             border: 1px solid rgba(255, 255, 255, 0.08);
         }
-        /* Custom scrollbar */
-        ::-webkit-scrollbar {
-            width: 8px;
-        }
-        ::-webkit-scrollbar-track {
-            background: #0A1128;
-        }
-        ::-webkit-scrollbar-thumb {
-            background: #F59E0B;
-            border-radius: 4px;
-        }
     </style>
 </head>
 <body class="bg-navy-950 text-slate-100 flex flex-col min-h-screen">
 
-    <!-- Navbar -->
+    <!-- Header -->
     <header class="sticky top-0 z-50 bg-navy-900/90 backdrop-blur-md border-b border-slate-800 shadow-xl">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex items-center justify-between h-20">
-                <!-- Logo -->
                 <div class="flex items-center space-x-3 space-x-reverse">
-                    <div class="w-12 h-12 rounded-xl bg-gradient-to-tr from-brand-blue to-brand-gold flex items-center justify-center shadow-lg shadow-brand-blue/20">
-                        <i class="fa-solid font-bold fa-shield-halved text-2xl text-white"></i>
+                    <div class="w-12 h-12 rounded-xl bg-gradient-to-tr from-brand-blue to-brand-gold flex items-center justify-center shadow-lg">
+                        <i class="fa-solid fa-shield-halved text-2xl text-white"></i>
                     </div>
                     <div>
-                        <span class="text-2xl font-black tracking-wide text-white block leading-none">سيكيور <span class="text-brand-gold">تيك</span></span>
+                        <span class="text-2xl font-black text-white block leading-none">سيكيور <span class="text-brand-gold">تيك</span></span>
                         <span class="text-xs text-slate-400 font-semibold tracking-wider">SECURE TECH</span>
                     </div>
                 </div>
 
-                <!-- Navigation Links -->
                 <nav class="hidden md:flex items-center space-x-8 space-x-reverse font-medium text-sm">
                     <a href="#hero" class="hover:text-brand-gold transition-colors">الرئيسية</a>
                     <a href="#products" class="hover:text-brand-gold transition-colors">المنتجات والأسعار</a>
                     <a href="#packages" class="hover:text-brand-gold transition-colors">الباقات الجاهزة</a>
                     <a href="#calculator" class="hover:text-brand-gold transition-colors">حاسبة التكلفة</a>
-                    <a href="#contact" class="hover
+                </nav>
+
+                <div class="flex items-center space-x-4 space-x-reverse">
+                    <!-- Currency Switcher -->
+                    <div class="flex items-center bg-navy-800 border border-slate-700 rounded-lg p-1 text-xs">
+                        <button id="btn-usd" onclick="setCurrency('USD')" class="px-3 py-1.5 rounded-md font-bold transition-all bg-brand-gold text-navy-950">USD ($)</button>
+                        <button id="btn-syp" onclick="setCurrency('SYP')" class="px-3 py-1.5 rounded-md font-bold transition-all text-slate-300 hover:text-white">ليرة سورية</button>
+                    </div>
+
+                    <!-- Cart Button -->
+                    <button onclick="toggleCartModal()" class="relative bg-brand-blue/20 hover:bg-brand-blue/30 text-brand-blue border border-brand-blue/40 p-2.5 rounded-xl transition-all">
+                        <i class="fa-solid fa-cart-shopping text-lg"></i>
+                        <span id="cart-count" class="absolute -top-2 -right-2 bg-brand-gold text-navy-950 font-extrabold text-xs w-5 h-5 rounded-full flex items-center justify-center">0</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="hero" class="hero-bg py-20 flex-1 flex items-center">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full text-center md:text-right">
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <div class="space-y-6">
+                    <span class="inline-block bg-brand-gold/10 border border-brand-gold/30 px-4 py-1.5 rounded-full text-brand-gold text-sm font-semibold">
+                        أنظمة مراقبة وأمان موثوقة 100%
+                    </span>
+                    <h1 class="text-4xl sm:text-5xl font-black text-white leading-tight">
+                        أمان منزلك ومؤسستك <br><span class="text-brand-gold">في أيدٍ أمينة مع سيكيور تيك</span>
+                    </h1>
+                    <p class="text-slate-300 text-lg">
+                        نقدم أحدث كاميرات المراقبة، أجهزة الإنذار المبكر، وأجهزة البصمة بأعلى جودة وضمان حقيقي.
+                    </p>
+                    <div class="flex flex-col sm:flex-row gap-4 pt-4">
+                        <a href="#products" class="bg-brand-gold hover:bg-brand-goldHover text-navy-950 font-bold px-8 py-4 rounded-xl shadow-lg transition-all text-center">تصفح الأصناف والأسعار</a>
+                        <a href="#calculator" class="bg-navy-800 hover:bg-slate-800 text-white border border-slate-700 font-bold px-8 py-4 rounded-xl transition-all text-center">احسب تكلفة نظامك</a>
+                    </div>
+                </div>
+
+                <div class="glass-card p-8 rounded-3xl grid grid-cols-2 gap-4 text-center">
+                    <div class="bg-navy-900/80 p-6 rounded-2xl border border-slate-800">
+                        <i class="fa-solid fa-video text-3xl text-brand-gold mb-2"></i>
+                        <h3 class="font-bold text-white">كاميرات مراقبة</h3>
+                    </div>
+                    <div class="bg-navy-900/80 p-6 rounded-2xl border border-slate-800">
+                        <i class="fa-solid fa-bell text-3xl text-brand-blue mb-2"></i>
+                        <h3 class="font-bold text-white">أنظمة إنذار</h3>
+                    </div>
+                    <div class="bg-navy-900/80 p-6 rounded-2xl border border-slate-800">
+                        <i class="fa-solid fa-fingerprint text-3xl text-emerald-400 mb-2"></i>
+                        <h3 class="font-bold text-white">حضور وانصراف</h3>
+                    </div>
+                    <div class="bg-navy-900/80 p-6 rounded-2xl border border-slate-800">
+                        <i class="fa-solid fa-wrench text-3xl text-amber-400 mb-2"></i>
+                        <h3 class="font-bold text-white">صيانة ودعم</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Products Catalog -->
+    <section id="products" class="py-20 bg-navy-900">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-black text-white mb-2">الأصناف والمنتجات المتاحة</h2>
+                <p class="text-slate-400">اختر المنتجات واطلبها فوراً عبر الواتساب</p>
+            </div>
+
+            <div id="products-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8"></div>
+        </div>
+    </section>
+
+    <!-- Interactive Calculator -->
+    <section id="calculator" class="py-20 bg-navy-950 border-t border-slate-800">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-10">
+                <h2 class="text-3xl font-black text-white">حاسبة التكلفة التقديرية</h2>
+            </div>
+
+            <div class="glass-card p-8 rounded-3xl space-y-6">
+                <div>
+                    <label class="block text-sm font-bold text-slate-300 mb-2">عدد الكاميرات المطلوبة:</label>
+                    <input type="range" id="calc-cameras" min="1" max="16" value="4" oninput="calculateTotal()" class="w-full accent-brand-gold">
+                    <div class="flex justify-between text-xs text-slate-400 mt-1">
+                        <span>1 كاميرا</span>
+                        <span id="cameras-val" class="text-brand-gold font-bold text-sm">4 كاميرات</span>
+                        <span>16 كاميرا</span>
+                    </div>
+                </div>
+
+                <div class="bg-navy-900 p-6 rounded-2xl border border-slate-800 flex flex-col sm:flex-row items-center justify-between gap-4">
+                    <div>
+                        <span class="text-slate-400 text-xs block">التكلفة التقديرية:</span>
+                        <span id="calc-total-price" class="text-3xl font-black text-brand-gold">180 $</span>
+                    </div>
+                    <button onclick="sendCalculatedOrder()" class="bg-emerald-600 hover:bg-emerald-500 text-white font-bold px-6 py-3 rounded-xl transition-all flex items-center space-x-2 space-x-reverse">
+                        <i class="fa-brands fa-whatsapp text-lg"></i>
+                        <span>طلب النظام بهذا السعر</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-navy-950 border-t border-slate-800 py-8 text-center text-xs text-slate-500">
+        جميع الحقوق محفوظة © 2026 لـ سيكيور تيك للأنظمة الأمنية وكاميرات المراقبة.
+    </footer>
+
+    <!-- Cart Modal -->
+    <div id="cart-modal" class="fixed inset-0 bg-black/70 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
+        <div class="bg-navy-900 border border-slate-800 w-full max-w-md rounded-3xl p-6 relative text-right">
+            <button onclick="toggleCartModal()" class="absolute top-4 left-4 text-slate-400 hover:text-white">
+                <i class="fa-solid fa-xmark text-xl"></i>
+            </button>
+            <h3 class="text-xl font-bold text-white mb-4">سلة المشتريات</h3>
+            <div id="cart-items" class="space-y-3 max-h-60 overflow-y-auto mb-4"></div>
+            <div class="border-t border-slate-800 pt-4 mb-6 flex justify-between items-center">
+                <span class="font-bold text-white">المجموع الإجمالي:</span>
+                <span id="cart-total" class="text-2xl font-black text-brand-gold">0 $</span>
+            </div>
+            <button onclick="checkoutWhatsApp()" class="w-full bg-emerald-600 hover:bg-emerald-500 text-white font-bold py-3 rounded-xl transition-all">إرسال الطلب عبر الواتساب</button>
+        </div>
+    </div>
+
+    <!-- JavaScript -->
+    <script>
+        let currentCurrency = 'USD';
+        const exchangeRate = 15000;
+
+        const products = [
+            { id: 1, name: "كاميرا خارجية Dahua 5MP", priceUsd: 35, image: "https://images.unsplash.com/photo-1557597774-9d273605dfa9?auto=format&fit=crop&w=400&q=80" },
+            { id: 2, name: "كاميرا داخلية Hikvision Dome 5MP", priceUsd: 30, image: "https://images.unsplash.com/photo-1557597774-9d273605dfa9?auto=format&fit=crop&w=400&q=80" },
+            { id: 3, name: "جهاز تسجيل DVR Dahua 4-Channels", priceUsd: 55, image: "https://images.unsplash.com/photo-1544717297-fa95b6ee9643?auto=format&fit=crop&w=400&q=80" },
+            { id: 4, name: "نظام إنذار لاسلكي متكامل", priceUsd: 110, image: "https://images.unsplash.com/photo-1588600030303-93d3950e32ef?auto=format&fit=crop&w=400&q=80" }
+        ];
+
+        let cart = [];
+
+        function setCurrency(currency) {
+            currentCurrency = currency;
+            document.getElementById('btn-usd').className = currency === 'USD' ? "px-3 py-1.5 rounded-md font-bold transition-all bg-brand-gold text-navy-950" : "px-3 py-1.5 rounded-md font-bold transition-all text-slate-300 hover:text-white";
+            document.getElementById('btn-syp').className = currency === 'SYP' ? "px-3 py-1.5 rounded-md font-bold transition-all bg-brand-gold text-navy-950" : "px-3 py-1.5 rounded-md font-bold transition-all text-slate-300 hover:text-white";
+            renderProducts();
+            calculateTotal();
+            updateCartUI();
+        }
+
+        function formatPrice(usdPrice) {
+            return currentCurrency === 'USD' ? `${usdPrice} $` : `${(usdPrice * exchangeRate).toLocaleString('ar-SY')} ل.س`;
+        }
+
+        function renderProducts() {
+            const grid = document.getElementById('products-grid');
+            grid.innerHTML = '';
+            products.forEach(p => {
+                grid.innerHTML += `
+                    <div class="glass-card rounded-2xl overflow-hidden border border-slate-800 p-4">
+                        <img src="${p.image}" class="w-full h-40 object-cover rounded-xl mb-4">
+                        <h3 class="font-bold text-white mb-2">${p.name}</h3>
+                        <div class="text-xl font-black text-brand-gold mb-4">${formatPrice(p.priceUsd)}</div>
+                        <button onclick="addToCart(${p.id})" class="w-full bg-brand-blue/20 hover:bg-brand-blue text-brand-blue hover:text-white border border-brand-blue/30 font-bold py-2 rounded-xl transition-all">إضافة للسلة +</button>
+                    </div>
+                `;
+            });
+        }
+
+        function calculateTotal() {
+            const num = parseInt(document.getElementById('calc-cameras').value);
+            document.getElementById('cameras-val').textContent = `${num} كاميرات`;
+            const totalUsd = (num * 30) + 60;
+            document.getElementById('calc-total-price').textContent = formatPrice(totalUsd);
+            return totalUsd;
+        }
+
+        function addToCart(id) {
+            cart.push(products.find(p => p.id === id));
+            updateCartUI();
+            toggleCartModal();
+        }
+
+        function updateCartUI() {
+            document.getElementById('cart-count').textContent = cart.length;
+            const itemsDiv = document.getElementById('cart-items');
+            itemsDiv.innerHTML = '';
+            let total = 0;
+            cart.forEach((item, index) => {
+                total += item.priceUsd;
+                itemsDiv.innerHTML += `
+                    <div class="flex justify-between items-center bg-navy-950 p-3 rounded-xl border border-slate-800">
+                        <div>
+                            <p class="font-bold text-white text-sm">${item.name}</p>
+                            <p class="text-brand-gold text-xs">${formatPrice(item.priceUsd)}</p>
+                        </div>
+                        <button onclick="cart.splice(${index},1);updateCartUI();" class="text-red-400 text-xs">حذف</button>
+                    </div>
+                `;
+            });
+            document.getElementById('cart-total').textContent = formatPrice(total);
+        }
+
+        function toggleCartModal() { document.getElementById('cart-modal').classList.toggle('hidden'); }
+
+        function checkoutWhatsApp() {
+            if (!cart.length) return alert('السلة فارغة!');
+            let text = 'طلب جديد من سيكيور تيك:\n';
+            let total = 0;
+            cart.forEach(i => { text += `- ${i.name} (${formatPrice(i.priceUsd)})\n`; total += i.priceUsd; });
+            text += `\nالمجموع: ${formatPrice(total)}`;
+            window.open(`https://wa.me/00963900000000?text=${encodeURIComponent(text)}`);
+        }
+
+        function sendCalculatedOrder() {
+            const total = calculateTotal();
+            window.open(`https://wa.me/00963900000000?text=${encodeURIComponent('طلب نظام حاسبة بسعر: ' + formatPrice(total))}`);
+        }
+
+        renderProducts();
+        calculateTotal();
+    </script>
+</body>
+</html>
