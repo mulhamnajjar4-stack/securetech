@@ -1,0 +1,1164 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>سيكيور تيك | للأنظمة الأمنية وكاميرات المراقبة</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts: Cairo & Tajawal -->
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;800;900&family=Tajawal:wght@400;500;700;800&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            dark: '#0A1128',      // Deep Security Navy
+                            cardBg: '#121E3E',    // Dark Blue Card Bg
+                            accent: '#38BDF8',    // Cyan / Electric Blue Accent
+                            gold: '#F59E0B',      // Security Yellow/Gold
+                            red: '#EF4444',       // Security Alert Red
+                            emerald: '#10B981',   // Success WhatsApp Green
+                            lightBg: '#F8FAFC'
+                        }
+                    },
+                    fontFamily: {
+                        cairo: ['Cairo', 'sans-serif'],
+                        tajawal: ['Tajawal', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            font-family: 'Cairo', 'Tajawal', sans-serif;
+            scroll-behavior: smooth;
+        }
+        .hero-bg {
+            background: linear-gradient(135deg, rgba(10, 17, 40, 0.96) 0%, rgba(18, 30, 62, 0.92) 100%), 
+                        url('https://images.unsplash.com/photo-1557597774-9d273605dfa9?auto=format&fit=crop&w=1920&q=80') center/cover no-repeat;
+        }
+        .gold-gradient {
+            background: linear-gradient(135deg, #F59E0B 0%, #D97706 100%);
+        }
+        .accent-gradient {
+            background: linear-gradient(135deg, #38BDF8 0%, #0284C7 100%);
+        }
+        /* Custom scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #0A1128;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #F59E0B;
+            border-radius: 4px;
+        }
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-800 font-cairo antialiased selection:bg-brand-gold selection:text-brand-dark">
+
+    <!-- Top Contact & Social Bar -->
+    <div class="bg-brand-dark text-slate-300 text-xs py-2.5 px-4 border-b border-slate-800">
+        <div class="max-w-7xl mx-auto flex flex-wrap justify-between items-center gap-3">
+            <!-- Quick Contact Info -->
+            <div class="flex items-center space-x-5 space-x-reverse flex-wrap">
+                <a href="tel:+966500000000" class="hover:text-brand-gold transition-colors flex items-center gap-1.5">
+                    <i class="fas fa-phone-alt text-brand-gold"></i>
+                    <span dir="ltr">+966 50 000 0000</span>
+                </a>
+                <a href="https://wa.me/966500000000" target="_blank" class="hover:text-brand-emerald transition-colors flex items-center gap-1.5">
+                    <i class="fab fa-whatsapp text-brand-emerald"></i>
+                    <span>محادثة واتساب فورية</span>
+                </a>
+                <span class="hidden md:flex items-center gap-1.5">
+                    <i class="fas fa-envelope text-brand-accent"></i>
+                    <span>info@securetech.com</span>
+                </span>
+                <span class="hidden lg:flex items-center gap-1.5">
+                    <i class="fas fa-clock text-brand-gold"></i>
+                    <span>السبت - الخميس: 8:00 ص - 10:00 م</span>
+                </span>
+            </div>
+
+            <!-- Social Media Handles -->
+            <div class="flex items-center gap-2">
+                <span class="hidden sm:inline text-[11px] text-slate-400">تابعنا:</span>
+                <a href="#" class="w-6 h-6 rounded-full bg-slate-800 hover:bg-brand-gold hover:text-brand-dark flex items-center justify-center transition-all text-xs" title="فيسبوك"><i class="fab fa-facebook-f"></i></a>
+                <a href="#" class="w-6 h-6 rounded-full bg-slate-800 hover:bg-brand-gold hover:text-brand-dark flex items-center justify-center transition-all text-xs" title="إنستغرام"><i class="fab fa-instagram"></i></a>
+                <a href="#" class="w-6 h-6 rounded-full bg-slate-800 hover:bg-brand-gold hover:text-brand-dark flex items-center justify-center transition-all text-xs" title="تيك توك"><i class="fab fa-tiktok"></i></a>
+                <a href="#" class="w-6 h-6 rounded-full bg-slate-800 hover:bg-brand-gold hover:text-brand-dark flex items-center justify-center transition-all text-xs" title="يوتيوب"><i class="fab fa-youtube"></i></a>
+                <a href="#" class="w-6 h-6 rounded-full bg-slate-800 hover:bg-brand-gold hover:text-brand-dark flex items-center justify-center transition-all text-xs" title="لينكد إن"><i class="fab fa-linkedin-in"></i></a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Navigation Header -->
+    <header class="sticky top-0 z-40 bg-white/95 backdrop-blur-md shadow-md border-b border-slate-100">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                
+                <!-- Logo Zone (Camera inside Shield Logo Placeholder) -->
+                <div class="flex items-center gap-3 cursor-pointer" onclick="location.href='#hero'">
+                    <div id="company-logo-placeholder" class="relative group">
+                        <div class="w-12 h-12 bg-gradient-to-tr from-brand-dark via-slate-900 to-brand-cardBg rounded-2xl flex items-center justify-center text-white text-2xl shadow-lg border-2 border-brand-gold relative overflow-hidden">
+                            <!-- Shield Body -->
+                            <i class="fas fa-shield-alt text-brand-gold text-2xl"></i>
+                            <!-- Lens Overlay -->
+                            <i class="fas fa-camera text-brand-accent text-xs absolute inset-0 m-auto flex items-center justify-center"></i>
+                        </div>
+                        <span class="absolute -top-1 -right-1 flex h-3 w-3">
+                          <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-brand-red opacity-75"></span>
+                          <span class="relative inline-flex rounded-full h-3 w-3 bg-brand-red"></span>
+                        </span>
+                    </div>
+                    <div>
+                        <div class="flex items-center gap-1.5">
+                            <span class="text-2xl font-black text-brand-dark tracking-tight">سيكيور <span class="text-brand-gold">تيك</span></span>
+                            <span class="bg-brand-red text-white text-[9px] font-black px-1.5 py-0.5 rounded">SECURITY</span>
+                        </div>
+                        <p class="text-[10px] text-slate-500 font-extrabold tracking-wider">للأنظمة الأمنية وكاميرات المراقبة</p>
+                    </div>
+                </div>
+
+                <!-- Desktop Navigation -->
+                <nav class="hidden lg:flex items-center gap-6 font-bold text-slate-700 text-sm">
+                    <a href="#hero" class="hover:text-brand-gold transition-colors">الرئيسية</a>
+                    <a href="#catalog" class="hover:text-brand-gold transition-colors flex items-center gap-1">
+                        <span>الأصناف والأسعار</span>
+                        <span class="bg-brand-gold/10 text-brand-gold text-[10px] px-2 py-0.5 rounded-full font-extrabold">متجر</span>
+                    </a>
+                    <a href="#packages" class="hover:text-brand-gold transition-colors">الباقات الشاملة</a>
+                    <a href="#calculator" class="hover:text-brand-gold transition-colors">حاسبة التكلفة</a>
+                    <a href="#services" class="hover:text-brand-gold transition-colors">خدماتنا</a>
+                    <a href="#portfolio" class="hover:text-brand-gold transition-colors">أعمالنا</a>
+                    <a href="#contact" class="hover:text-brand-gold transition-colors">تواصل معنا</a>
+                </nav>
+
+                <!-- Action Controls (Cart & Quote) -->
+                <div class="flex items-center gap-3">
+                    <!-- Shopping Cart Button -->
+                    <button onclick="toggleCartDrawer()" class="relative bg-slate-100 hover:bg-slate-200 text-brand-dark p-3 rounded-xl transition-all flex items-center justify-center border border-slate-200 shadow-sm" title="سلة الطلبات">
+                        <i class="fas fa-shopping-cart text-lg"></i>
+                        <span id="cart-badge" class="absolute -top-1.5 -right-1.5 bg-brand-red text-white text-[10px] font-extrabold w-5 h-5 rounded-full flex items-center justify-center shadow">0</span>
+                    </button>
+
+                    <!-- Fast Consultation Button -->
+                    <button onclick="openConsultationModal()" class="hidden sm:flex gold-gradient hover:opacity-95 text-brand-dark text-xs sm:text-sm font-black px-5 py-2.5 rounded-xl shadow-md transition-all items-center gap-2">
+                        <i class="fas fa-file-invoice-dollar"></i>
+                        <span>اطلب تسعيرة فورية</span>
+                    </button>
+
+                    <!-- Mobile Menu Trigger -->
+                    <button id="mobile-menu-btn" class="lg:hidden text-brand-dark text-2xl p-2 focus:outline-none">
+                        <i class="fas fa-bars"></i>
+                    </button>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- Mobile Navigation Menu -->
+        <div id="mobile-menu" class="hidden lg:hidden bg-white border-b border-slate-200 px-6 py-4 space-y-3 font-bold text-slate-700 shadow-lg">
+            <a href="#hero" class="block py-2 border-b border-slate-100 hover:text-brand-gold">الرئيسية</a>
+            <a href="#catalog" class="block py-2 border-b border-slate-100 hover:text-brand-gold">الأصناف والأسعار والكتالوج</a>
+            <a href="#packages" class="block py-2 border-b border-slate-100 hover:text-brand-gold">باقات المبيعات والتركيب</a>
+            <a href="#calculator" class="block py-2 border-b border-slate-100 hover:text-brand-gold">حاسبة التكلفة التفاعلية</a>
+            <a href="#services" class="block py-2 border-b border-slate-100 hover:text-brand-gold">خدمات الأنظمة الأمنية</a>
+            <a href="#portfolio" class="block py-2 border-b border-slate-100 hover:text-brand-gold">معرض المشاريع والعملاء</a>
+            <a href="#contact" class="block py-2 border-b border-slate-100 hover:text-brand-gold">تواصل معنا وحساباتنا</a>
+            <button onclick="openConsultationModal()" class="w-full gold-gradient text-brand-dark font-black py-3 rounded-xl shadow mt-2">
+                اطلب عرض سعر الآن
+            </button>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="hero" class="hero-bg text-white py-16 lg:py-28 relative overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="grid lg:grid-cols-12 gap-12 items-center">
+                
+                <div class="lg:col-span-7 space-y-6 text-center lg:text-right">
+                    <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-brand-gold/20 border border-brand-gold/40 text-brand-gold text-xs sm:text-sm font-bold">
+                        <i class="fas fa-shield-alt"></i>
+                        <span>سيكيور تيك - حماية ذكية متكاملة 24/7</span>
+                    </div>
+
+                    <h1 class="text-3xl sm:text-5xl lg:text-6xl font-black leading-tight">
+                        أنظمة المراقبة والأمان المعتمدة لحماية <span class="text-transparent bg-clip-text bg-gradient-to-r from-brand-gold via-yellow-200 to-brand-accent">منشأتك وبيتك</span>
+                    </h1>
+
+                    <p class="text-slate-300 text-sm sm:text-base leading-relaxed max-w-2xl">
+                        تصفح أحدث أصناف كاميرات المراقبة المتقدمة، أجهزة التسجيل DVR/NVR، أنظمة الإنذار، وأجهزة الحضور والانصراف مع إمكانية الطلب المباشر وعرض الأسعار الفوري مع التوريد والتركيب والضمان.
+                    </p>
+
+                    <!-- Hero Call to Actions -->
+                    <div class="flex flex-wrap items-center justify-center lg:justify-start gap-4 pt-4">
+                        <a href="#catalog" class="gold-gradient text-brand-dark font-black px-7 py-3.5 rounded-xl shadow-lg hover:shadow-yellow-500/20 transition-all transform hover:-translate-y-0.5 flex items-center gap-2 text-sm sm:text-base">
+                            <i class="fas fa-store"></i>
+                            <span>استعراض الأصناف والأسعار</span>
+                        </a>
+                        <a href="#calculator" class="bg-white/10 hover:bg-white/20 text-white font-bold px-7 py-3.5 rounded-xl border border-white/20 backdrop-blur-md transition-all flex items-center gap-2 text-sm sm:text-base">
+                            <i class="fas fa-calculator text-brand-gold"></i>
+                            <span>احسب تكلفة النظام</span>
+                        </a>
+                    </div>
+
+                    <!-- Key Stats -->
+                    <div class="grid grid-cols-3 gap-4 pt-8 border-t border-slate-800/80 max-w-lg mx-auto lg:mx-0">
+                        <div>
+                            <h3 class="text-2xl sm:text-3xl font-black text-brand-gold">+3000</h3>
+                            <p class="text-xs text-slate-400 font-semibold mt-1">منتج متوفر</p>
+                        </div>
+                        <div>
+                            <h3 class="text-2xl sm:text-3xl font-black text-brand-accent">+1800</h3>
+                            <p class="text-xs text-slate-400 font-semibold mt-1">مشروع منجز</p>
+                        </div>
+                        <div>
+                            <h3 class="text-2xl sm:text-3xl font-black text-brand-emerald">100%</h3>
+                            <p class="text-xs text-slate-400 font-semibold mt-1">اعتماد وضمان</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Hero Feature Banner -->
+                <div class="lg:col-span-5 hidden lg:block">
+                    <div class="relative">
+                        <div class="absolute -inset-1 bg-gradient-to-r from-brand-gold to-brand-accent rounded-3xl blur opacity-30"></div>
+                        <div class="relative rounded-3xl bg-slate-900/90 p-6 border border-slate-700 shadow-2xl space-y-4">
+                            <div class="relative rounded-2xl overflow-hidden group">
+                                <img src="https://images.unsplash.com/photo-1557597774-9d273605dfa9?auto=format&fit=crop&w=800&q=80" alt="Camera SecureTech" class="w-full h-64 object-cover">
+                                <span class="absolute top-3 right-3 bg-brand-red text-white text-xs font-black px-3 py-1 rounded-full shadow">الأعلى مبيعاً</span>
+                            </div>
+                            <div class="flex items-center justify-between text-xs text-slate-400">
+                                <span><i class="fas fa-microchip text-brand-gold ml-1"></i> دقة Ultra 8MP 4K</span>
+                                <span class="text-brand-emerald font-bold"><i class="fas fa-check-circle ml-1"></i> رؤية ليلية ملونة</span>
+                            </div>
+                            <h3 class="text-lg font-bold text-white">كاميرا مراقبة IP الذكية الخارجية ColorVu 8MP</h3>
+                            <div class="flex items-center justify-between pt-2 border-t border-slate-800">
+                                <div>
+                                    <span class="text-xs text-slate-400 block">سعر الصنف:</span>
+                                    <span class="text-2xl font-black text-brand-gold">380 <span class="text-xs text-slate-300">ر.س</span></span>
+                                </div>
+                                <button onclick="addToCart(1)" class="gold-gradient text-brand-dark text-xs font-black px-4 py-2.5 rounded-xl shadow transition-all flex items-center gap-1.5">
+                                    <i class="fas fa-cart-plus"></i>
+                                    <span>إضافة للطلب</span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Product Catalog Section (كتالوج الأصناف والأسعار) -->
+    <section id="catalog" class="py-20 bg-slate-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            
+            <div class="flex flex-col md:flex-row md:items-end justify-between mb-10 gap-4">
+                <div>
+                    <span class="text-brand-gold font-extrabold text-sm tracking-wide uppercase">كتالوج الأصناف والأسعار</span>
+                    <h2 class="text-3xl sm:text-4xl font-black text-brand-dark mt-1">منتجات وحلول سيكيور تيك</h2>
+                    <p class="text-slate-500 text-sm mt-1">تصفح كافة الأصناف والمواصفات وأضفها لسلة طلبك مباشرة</p>
+                </div>
+
+                <!-- Search Input Bar -->
+                <div class="relative w-full md:w-80">
+                    <input type="text" id="search-input" onkeyup="filterProducts()" placeholder="ابحث عن كاميرا، هاردسك، جهاز تسجيل..." class="w-full bg-white border border-slate-300 rounded-xl py-2.5 pr-10 pl-4 text-sm focus:outline-none focus:border-brand-gold shadow-sm">
+                    <i class="fas fa-search absolute right-3.5 top-3.5 text-slate-400 text-sm"></i>
+                </div>
+            </div>
+
+            <!-- Categories Filter Tabs -->
+            <div class="flex items-center gap-2 overflow-x-auto pb-4 mb-8 no-scrollbar">
+                <button onclick="filterCategory('all')" class="cat-btn active whitespace-nowrap px-5 py-2.5 rounded-xl font-black text-xs transition-all bg-brand-dark text-white shadow">الكل</button>
+                <button onclick="filterCategory('outdoor')" class="cat-btn whitespace-nowrap px-5 py-2.5 rounded-xl font-bold text-xs transition-all bg-white text-slate-700 hover:bg-slate-200 border border-slate-200">كاميرات خارجية IP & Analog</button>
+                <button onclick="filterCategory('indoor')" class="cat-btn whitespace-nowrap px-5 py-2.5 rounded-xl font-bold text-xs transition-all bg-white text-slate-700 hover:bg-slate-200 border border-slate-200">كاميرات داخلية PTZ</button>
+                <button onclick="filterCategory('dvr')" class="cat-btn whitespace-nowrap px-5 py-2.5 rounded-xl font-bold text-xs transition-all bg-white text-slate-700 hover:bg-slate-200 border border-slate-200">أجهزة DVR & NVR</button>
+                <button onclick="filterCategory('hdd')" class="cat-btn whitespace-nowrap px-5 py-2.5 rounded-xl font-bold text-xs transition-all bg-white text-slate-700 hover:bg-slate-200 border border-slate-200">أقراص التخزين HardDisk</button>
+                <button onclick="filterCategory('alarm')" class="cat-btn whitespace-nowrap px-5 py-2.5 rounded-xl font-bold text-xs transition-all bg-white text-slate-700 hover:bg-slate-200 border border-slate-200">أنظمة إنذار وحضور وانصراف</button>
+                <button onclick="filterCategory('accessories')" class="cat-btn whitespace-nowrap px-5 py-2.5 rounded-xl font-bold text-xs transition-all bg-white text-slate-700 hover:bg-slate-200 border border-slate-200">الملحقات والكابلات</button>
+            </div>
+
+            <!-- Product Grid -->
+            <div id="product-grid" class="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+                <!-- Products rendered via JavaScript -->
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Comprehensive Packages Section (باقات المبيعات والتركيب) -->
+    <section id="packages" class="py-20 bg-white border-t border-slate-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16 space-y-2">
+                <span class="text-brand-gold font-extrabold text-sm tracking-wide uppercase">عروض متكاملة</span>
+                <h2 class="text-3xl sm:text-4xl font-black text-brand-dark">باقات المبيعات والتركيب الشاملة</h2>
+                <p class="text-slate-500 text-sm">باقات جاهزة تشمل الأجهزة والتسجيل والتمديد والبرمجة مع ضمان سنتين</p>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Package 1 -->
+                <div class="rounded-3xl border border-slate-200 bg-slate-50 p-8 flex flex-col justify-between hover:shadow-xl transition-all relative overflow-hidden">
+                    <div class="space-y-6">
+                        <span class="bg-slate-200 text-slate-700 font-extrabold text-xs px-3 py-1 rounded-full inline-block">باقة منازل وشقق</span>
+                        <h3 class="text-2xl font-black text-brand-dark">باقة 4 كاميرات Full HD</h3>
+                        <div class="flex items-baseline gap-1">
+                            <span class="text-4xl font-black text-brand-dark">1,450</span>
+                            <span class="text-xs font-bold text-slate-500">ر.س / شامل التركيب</span>
+                        </div>
+
+                        <ul class="space-y-3 text-xs font-bold text-slate-600 border-t border-slate-200 pt-6">
+                            <li class="flex items-center gap-2"><i class="fas fa-check text-brand-emerald"></i> 4 كاميرات مراقبة خارجية/داخلية 2MP</li>
+                            <li class="flex items-center gap-2"><i class="fas fa-check text-brand-emerald"></i> جهاز تسجيل DVR 4 قنوات HD</li>
+                            <li class="flex items-center gap-2"><i class="fas fa-check text-brand-emerald"></i> قرص تخزين 1TB مخصص للمراقبة</li>
+                            <li class="flex items-center gap-2"><i class="fas fa-check text-brand-emerald"></i> شامل الأسلاك والمحولات والتسليك</li>
+                            <li class="flex items-center gap-2"><i class="fas fa-check text-brand-emerald"></i> ربط وبرمجة على الجوال مجاناً</li>
+                        </ul>
+                    </div>
+
+                    <button onclick="orderPackage('باقة 4 كاميرات Full HD', 1450)" class="mt-8 w-full bg-brand-dark hover:bg-slate-800 text-white font-extrabold py-3.5 rounded-xl shadow transition-all">
+                        طلب هذه الباقة
+                    </button>
+                </div>
+
+                <!-- Package 2 (Featured) -->
+                <div class="rounded-3xl border-2 border-brand-gold bg-brand-dark text-white p-8 flex flex-col justify-between hover:shadow-2xl transition-all relative overflow-hidden transform md:-translate-y-2">
+                    <span class="absolute top-0 left-0 bg-brand-gold text-brand-dark text-[10px] font-black px-4 py-1.5 rounded-br-2xl uppercase">الأكثر طلباً للمحلات</span>
+                    
+                    <div class="space-y-6">
+                        <span class="bg-brand-gold/20 text-brand-gold font-extrabold text-xs px-3 py-1 rounded-full inline-block">باقة احترافية 4K</span>
+                        <h3 class="text-2xl font-black text-white">باقة 4 كاميرات IP Smart 4K</h3>
+                        <div class="flex items-baseline gap-1">
+                            <span class="text-4xl font-black text-brand-gold">2,650</span>
+                            <span class="text-xs font-bold text-slate-300">ر.س / شامل التركيب</span>
+                        </div>
+
+                        <ul class="space-y-3 text-xs font-bold text-slate-300 border-t border-slate-800 pt-6">
+                            <li class="flex items-center gap-2"><i class="fas fa-check text-brand-gold"></i> 4 كاميرات شبكية IP دقة 8MP Ultra 4K</li>
+                            <li class="flex items-center gap-2"><i class="fas fa-check text-brand-gold"></i> جهاز تسجيل NVR 4 قنوات PoE</li>
+                            <li class="flex items-center gap-2"><i class="fas fa-check text-brand-gold"></i> قرص تخزين 2TB Seagate SkyHawk</li>
+                            <li class="flex items-center gap-2"><i class="fas fa-check text-brand-gold"></i> رؤية ليلية ملونة 24 ساعة ColorVu</li>
+                            <li class="flex items-center gap-2"><i class="fas fa-check text-brand-gold"></i> عقد صيانة واعتتماد رسمي للمحلات</li>
+                        </ul>
+                    </div>
+
+                    <button onclick="orderPackage('باقة 4 كاميرات IP Smart 4K', 2650)" class="mt-8 w-full gold-gradient text-brand-dark font-black py-3.5 rounded-xl shadow transition-all">
+                        طلب الباقة الذهبية
+                    </button>
+                </div>
+
+                <!-- Package 3 -->
+                <div class="rounded-3xl border border-slate-200 bg-slate-50 p-8 flex flex-col justify-between hover:shadow-xl transition-all relative overflow-hidden">
+                    <div class="space-y-6">
+                        <span class="bg-slate-200 text-slate-700 font-extrabold text-xs px-3 py-1 rounded-full inline-block">باقة الشركات والمستودعات</span>
+                        <h3 class="text-2xl font-black text-brand-dark">باقة 8 كاميرات شبكية IP</h3>
+                        <div class="flex items-baseline gap-1">
+                            <span class="text-4xl font-black text-brand-dark">4,200</span>
+                            <span class="text-xs font-bold text-slate-500">ر.س / شامل التركيب</span>
+                        </div>
+
+                        <ul class="space-y-3 text-xs font-bold text-slate-600 border-t border-slate-200 pt-6">
+                            <li class="flex items-center gap-2"><i class="fas fa-check text-brand-emerald"></i> 8 كاميرات IP خارجية/داخلية 5MP</li>
+                            <li class="flex items-center gap-2"><i class="fas fa-check text-brand-emerald"></i> جهاز NVR 8 قنوات مع سويتش PoE</li>
+                            <li class="flex items-center gap-2"><i class="fas fa-check text-brand-emerald"></i> قرص تخزين 4TB تسجيل لمدة شهرين</li>
+                            <li class="flex items-center gap-2"><i class="fas fa-check text-brand-emerald"></i> كابلات شبكة Cat6 مع المواسير والتسليك</li>
+                            <li class="flex items-center gap-2"><i class="fas fa-check text-brand-emerald"></i> شهادة كفاءة معتمدة للجهات الأمنية</li>
+                        </ul>
+                    </div>
+
+                    <button onclick="orderPackage('باقة 8 كاميرات شبكية IP', 4200)" class="mt-8 w-full bg-brand-dark hover:bg-slate-800 text-white font-extrabold py-3.5 rounded-xl shadow transition-all">
+                        طلب الباقة المتكاملة
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Interactive Cost Calculator Section -->
+    <section id="calculator" class="py-20 bg-brand-dark text-white relative">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-12 space-y-2">
+                <span class="bg-brand-gold/20 text-brand-gold border border-brand-gold/30 px-3.5 py-1 rounded-full text-xs font-black">حاسبة سريعة</span>
+                <h2 class="text-3xl sm:text-4xl font-black">احسب التكلفة التقديرية لنظامك الأمني</h2>
+                <p class="text-slate-300 text-xs sm:text-sm">حدد خيارات المنشأة لمعرفة السعر المبدئي والتجهيزات المطلوبة</p>
+            </div>
+
+            <div class="bg-brand-cardBg border border-slate-800 rounded-3xl p-6 sm:p-10 shadow-2xl space-y-8">
+                <div class="grid md:grid-cols-2 gap-8">
+                    
+                    <!-- Cam Count Slider -->
+                    <div class="space-y-3">
+                        <label class="block text-xs font-bold text-slate-300 flex justify-between">
+                            <span>عدد الكاميرات المطلوبة:</span>
+                            <span id="calc-cam-num" class="text-brand-gold font-black text-base">4 كاميرات</span>
+                        </label>
+                        <input type="range" id="calc-cam-slider" min="1" max="32" value="4" oninput="runCalculator()" class="w-full h-2 bg-slate-700 rounded-lg appearance-none cursor-pointer accent-brand-gold">
+                        <div class="flex justify-between text-[11px] text-slate-400">
+                            <span>1 كاميرا</span>
+                            <span>16 كاميرا</span>
+                            <span>32 كاميرا</span>
+                        </div>
+                    </div>
+
+                    <!-- Quality Spec -->
+                    <div class="space-y-2">
+                        <label class="block text-xs font-bold text-slate-300">نوع ودقة الكاميرات:</label>
+                        <select id="calc-quality" onchange="runCalculator()" class="w-full bg-slate-900 border border-slate-700 text-white text-xs rounded-xl p-3 focus:outline-none focus:border-brand-gold">
+                            <option value="180">Analog Full HD 1080p (2 Megapixel)</option>
+                            <option value="320" selected>Smart IP 4 Megapixel (الخيار الموصى به)</option>
+                            <option value="480">Ultra 4K ColorVu 8 Megapixel (أعلى دقة ورؤية ملونة)</option>
+                        </select>
+                    </div>
+
+                    <!-- Storage Period -->
+                    <div class="space-y-2">
+                        <label class="block text-xs font-bold text-slate-300">سعة التخزين (مدة الاحتفاظ بالتسجيلات):</label>
+                        <select id="calc-storage" onchange="runCalculator()" class="w-full bg-slate-900 border border-slate-700 text-white text-xs rounded-xl p-3 focus:outline-none focus:border-brand-gold">
+                            <option value="180">1TB - تسجيل أسبوعين</option>
+                            <option value="320" selected>2TB - تسجيل شهر كامل</option>
+                            <option value="580">4TB - تسجيل شهرين</option>
+                            <option value="1100">8TB - تسجيل 4 أشهر</option>
+                        </select>
+                    </div>
+
+                    <!-- Addons -->
+                    <div class="space-y-2">
+                        <label class="block text-xs font-bold text-slate-300">إضافات وأنظمة ملحقة:</label>
+                        <div class="space-y-2 pt-1">
+                            <label class="flex items-center gap-2 cursor-pointer text-xs text-slate-300">
+                                <input type="checkbox" id="calc-alarm" onchange="runCalculator()" class="w-4 h-4 rounded text-brand-gold focus:ring-0">
+                                <span>نظام إنذار سرقة متكامل (+550 ر.س)</span>
+                            </label>
+                            <label class="flex items-center gap-2 cursor-pointer text-xs text-slate-300">
+                                <input type="checkbox" id="calc-access" onchange="runCalculator()" class="w-4 h-4 rounded text-brand-gold focus:ring-0">
+                                <span>جهاز بصمة حضور وانصراف (+500 ر.س)</span>
+                            </label>
+                            <label class="flex items-center gap-2 cursor-pointer text-xs text-slate-300">
+                                <input type="checkbox" id="calc-install" onchange="runCalculator()" checked class="w-4 h-4 rounded text-brand-gold focus:ring-0">
+                                <span>أعمال التمديد والتركيب والبرمجة والربط (+400 ر.س)</span>
+                            </label>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- Calculator Output -->
+                <div class="bg-slate-900 p-6 rounded-2xl border border-slate-800 flex flex-col md:flex-row items-center justify-between gap-6">
+                    <div>
+                        <span class="text-xs text-slate-400 block">التكلفة التقديرية التجميعية:</span>
+                        <div class="flex items-baseline gap-2">
+                            <span id="calc-total-price" class="text-3xl sm:text-4xl font-black text-brand-gold">2,000</span>
+                            <span class="text-sm font-bold text-slate-300">ريال سعودي</span>
+                        </div>
+                    </div>
+
+                    <button onclick="sendCalculatorToWhatsApp()" class="w-full md:w-auto bg-brand-emerald hover:bg-emerald-600 text-white font-black px-6 py-3.5 rounded-xl shadow-lg transition-all flex items-center justify-center gap-2 text-sm whitespace-nowrap">
+                        <i class="fab fa-whatsapp text-lg"></i>
+                        <span>اعتماد الحساب وإرساله للواتساب</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="py-20 bg-slate-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16 space-y-2">
+                <span class="text-brand-gold font-extrabold text-sm tracking-wide uppercase">خدمات الأنظمة الأمنية</span>
+                <h2 class="text-3xl sm:text-4xl font-black text-brand-dark">ماذا تقدم شركة سيكيور تيك؟</h2>
+                <p class="text-slate-500 text-sm">خدمات احترافية متكاملة تشمل التوريد والتركيب والصيانة واستخراج تراخيص الاعتماد</p>
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Service 1 -->
+                <div class="p-8 rounded-3xl border border-slate-200 bg-white hover:shadow-xl transition-all duration-300 group space-y-4">
+                    <div class="w-14 h-14 bg-sky-100 text-brand-accent rounded-2xl flex items-center justify-center text-2xl group-hover:bg-brand-accent group-hover:text-white transition-colors">
+                        <i class="fas fa-video"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-brand-dark">تركيب شبكات الكاميرات</h3>
+                    <p class="text-slate-600 text-xs leading-relaxed">
+                        توريد وتركيب كافة كاميرات IP و Analog مع تمديد المواسير والكابلات وشبكات الألياف الضوئية المعتمدة.
+                    </p>
+                </div>
+
+                <!-- Service 2 -->
+                <div class="p-8 rounded-3xl border border-slate-200 bg-white hover:shadow-xl transition-all duration-300 group space-y-4">
+                    <div class="w-14 h-14 bg-amber-100 text-brand-gold rounded-2xl flex items-center justify-center text-2xl group-hover:bg-brand-gold group-hover:text-brand-dark transition-colors">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-brand-dark">أنظمة الإنذار ضد السرقة</h3>
+                    <p class="text-slate-600 text-xs leading-relaxed">
+                        تركيب حساسات الحركة اللاسلكية، حساسات كسر الزجاج والفتح، والصفارات الصوتية المربوطة بالجوال مباشرة.
+                    </p>
+                </div>
+
+                <!-- Service 3 -->
+                <div class="p-8 rounded-3xl border border-slate-200 bg-white hover:shadow-xl transition-all duration-300 group space-y-4">
+                    <div class="w-14 h-14 bg-emerald-100 text-brand-emerald rounded-2xl flex items-center justify-center text-2xl group-hover:bg-brand-emerald group-hover:text-white transition-colors">
+                        <i class="fas fa-fingerprint"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-brand-dark">أجهزة البصمة والتحكم بالدخول</h3>
+                    <p class="text-slate-600 text-xs leading-relaxed">
+                        أجهزة الحضور والانصراف ببصمة الاصبع والوجه مع الأقفال الكهرومغناطيسية والأبواب الذكية للشركات.
+                    </p>
+                </div>
+
+                <!-- Service 4 -->
+                <div class="p-8 rounded-3xl border border-slate-200 bg-white hover:shadow-xl transition-all duration-300 group space-y-4">
+                    <div class="w-14 h-14 bg-red-100 text-brand-red rounded-2xl flex items-center justify-center text-2xl group-hover:bg-brand-red group-hover:text-white transition-colors">
+                        <i class="fas fa-file-contract"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-brand-dark">عقود صيانة وشهادات اعتماد</h3>
+                    <p class="text-slate-600 text-xs leading-relaxed">
+                        إصدار شهادات كفاءة الكاميرات وتجديد رخص البلدية والجهات الأمنية للمحلات والأنشطة التجارية.
+                    </p>
+                </div>
+
+                <!-- Service 5 -->
+                <div class="p-8 rounded-3xl border border-slate-200 bg-white hover:shadow-xl transition-all duration-300 group space-y-4">
+                    <div class="w-14 h-14 bg-purple-100 text-purple-600 rounded-2xl flex items-center justify-center text-2xl group-hover:bg-purple-600 group-hover:text-white transition-colors">
+                        <i class="fas fa-network-wired"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-brand-dark">شبكات وتمديدات السيرفرات</h3>
+                    <p class="text-slate-600 text-xs leading-relaxed">
+                        تجهيز كابينات السيرفرات Rack، سويتشات PoE، والربط اللاسلكي بعيد المدى للمستودعات والمباني.
+                    </p>
+                </div>
+
+                <!-- Service 6 -->
+                <div class="p-8 rounded-3xl border border-slate-200 bg-white hover:shadow-xl transition-all duration-300 group space-y-4">
+                    <div class="w-14 h-14 bg-indigo-100 text-indigo-600 rounded-2xl flex items-center justify-center text-2xl group-hover:bg-indigo-600 group-hover:text-white transition-colors">
+                        <i class="fas fa-headset"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-brand-dark">دعم فني وصيانة فورية</h3>
+                    <p class="text-slate-600 text-xs leading-relaxed">
+                        فريق صيانة متنقل لإصلاح أعطال أجهزة التسجيل والكاميرات وضبط الإعدادات عن بعد مجاناً.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Portfolio & Clients Section (الأعمال السابقة وآراء العملاء) -->
+    <section id="portfolio" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16 space-y-2">
+                <span class="text-brand-gold font-extrabold text-sm tracking-wide uppercase">معرض أعمالنا</span>
+                <h2 class="text-3xl sm:text-4xl font-black text-brand-dark">مشاريع تم تنفيذها بثقة</h2>
+                <p class="text-slate-500 text-sm">نماذج من مشاريع تركيب الأنظمة الأمنية في مختلف القطاعات</p>
+            </div>
+
+            <!-- Portfolio Grid -->
+            <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-16">
+                <div class="rounded-2xl overflow-hidden border border-slate-200 shadow-sm group">
+                    <div class="relative h-52 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=600&q=80" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                        <span class="absolute top-3 right-3 bg-brand-dark/90 text-brand-gold text-[11px] font-bold px-3 py-1 rounded-full">قطاع تجاري</span>
+                    </div>
+                    <div class="p-5">
+                        <h4 class="font-black text-brand-dark text-base">مشروع حماية مجمع تجاري متكامل</h4>
+                        <p class="text-xs text-slate-500 mt-1">تركيب 32 كاميرا IP 4K مع غرفة مراقبة وسيرفرات NVR مركزية.</p>
+                    </div>
+                </div>
+
+                <div class="rounded-2xl overflow-hidden border border-slate-200 shadow-sm group">
+                    <div class="relative h-52 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=600&q=80" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                        <span class="absolute top-3 right-3 bg-brand-dark/90 text-brand-gold text-[11px] font-bold px-3 py-1 rounded-full">قطاع سكني</span>
+                    </div>
+                    <div class="p-5">
+                        <h4 class="font-black text-brand-dark text-base">تأمين مجمع فلل سكنية ذكي</h4>
+                        <p class="text-xs text-slate-500 mt-1">كاميرات PTZ متحركة وحساسات إنذار مبكر ضد الاقتحام.</p>
+                    </div>
+                </div>
+
+                <div class="rounded-2xl overflow-hidden border border-slate-200 shadow-sm group">
+                    <div class="relative h-52 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1541888946425-d0fbb186a5b3?auto=format&fit=crop&w=600&q=80" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                        <span class="absolute top-3 right-3 bg-brand-dark/90 text-brand-gold text-[11px] font-bold px-3 py-1 rounded-full">مستودعات ومصانع</span>
+                    </div>
+                    <div class="p-5">
+                        <h4 class="font-black text-brand-dark text-base">نظام مراقبة وبصمة لمستودع رئيسي</h4>
+                        <p class="text-xs text-slate-500 mt-1">ربط لاسلكي بعيد المدى وأجهزة حضور وانصراف بالوجه.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Client Testimonials -->
+            <div class="bg-slate-50 rounded-3xl p-8 border border-slate-200">
+                <h3 class="text-xl font-black text-brand-dark text-center mb-8">ماذا يقول عملاؤنا عن سيكيور تيك؟</h3>
+                <div class="grid md:grid-cols-3 gap-6">
+                    <div class="bg-white p-6 rounded-2xl border border-slate-100 shadow-sm space-y-3">
+                        <div class="flex text-brand-gold text-xs">
+                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                        </div>
+                        <p class="text-xs text-slate-600 leading-relaxed">"سعة صدر واحترافية عالية في التركيب والتسليك مخفي بالكامل بدون تشويه الديكور. شكراً لفريق سيكيور تيك."</p>
+                        <span class="text-xs font-bold text-brand-dark block">م. خالد العتيبي - مالك شركة</span>
+                    </div>
+
+                    <div class="bg-white p-6 rounded-2xl border border-slate-100 shadow-sm space-y-3">
+                        <div class="flex text-brand-gold text-xs">
+                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                        </div>
+                        <p class="text-xs text-slate-600 leading-relaxed">"تم استخراج شهادة الاعتماد للبلدية بسرعة فائقة، والكاميرات دقتها ممتازة جداً والرؤية الليلية ملونة وواضحة."</p>
+                        <span class="text-xs font-bold text-brand-dark block">أ. أبو فهد - مطعم وسوبرماركت</span>
+                    </div>
+
+                    <div class="bg-white p-6 rounded-2xl border border-slate-100 shadow-sm space-y-3">
+                        <div class="flex text-brand-gold text-xs">
+                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                        </div>
+                        <p class="text-xs text-slate-600 leading-relaxed">"سرعة التجاوب والتعامل الراقي، وحاسبة التكلفة في الموقع كانت دقيقة جداً نفس المبلغ المطلوب بالضبط."</p>
+                        <span class="text-xs font-bold text-brand-dark block">د. سارة الشمري - فيلا سكنية</span>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Contact & Accounts Section -->
+    <section id="contact" class="py-20 bg-slate-50 border-t border-slate-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid lg:grid-cols-12 gap-12">
+                
+                <!-- Contact Info & Social Links -->
+                <div class="lg:col-span-5 space-y-8">
+                    <div>
+                        <span class="text-brand-gold font-extrabold text-sm tracking-wide uppercase">تواصل مع سيكيور تيك</span>
+                        <h2 class="text-3xl font-black text-brand-dark mt-1">أرقامنا وحساباتنا الرسمية</h2>
+                        <p class="text-slate-600 text-xs sm:text-sm mt-2 leading-relaxed">
+                            يسعدنا استقبال اتصالاتكم واستفساراتكم أو حجز موعد معاينة موقعك مجاناً.
+                        </p>
+                    </div>
+
+                    <div class="space-y-4">
+                        <div class="flex items-center gap-4 p-4 rounded-2xl bg-white border border-slate-200 shadow-sm">
+                            <div class="w-12 h-12 bg-sky-100 text-brand-accent rounded-xl flex items-center justify-center text-xl shrink-0">
+                                <i class="fas fa-phone-alt"></i>
+                            </div>
+                            <div>
+                                <span class="text-[11px] text-slate-400 font-bold block">الاتصال المباشر:</span>
+                                <a href="tel:+966500000000" class="text-sm font-black text-brand-dark hover:text-brand-gold" dir="ltr">+966 50 000 0000</a>
+                            </div>
+                        </div>
+
+                        <div class="flex items-center gap-4 p-4 rounded-2xl bg-white border border-slate-200 shadow-sm">
+                            <div class="w-12 h-12 bg-emerald-100 text-brand-emerald rounded-xl flex items-center justify-center text-xl shrink-0">
+                                <i class="fab fa-whatsapp"></i>
+                            </div>
+                            <div>
+                                <span class="text-[11px] text-slate-400 font-bold block">محادثة واتساب سريعة:</span>
+                                <a href="https://wa.me/966500000000" target="_blank" class="text-sm font-black text-brand-dark hover:text-brand-emerald" dir="ltr">+966 50 000 0000</a>
+                            </div>
+                        </div>
+
+                        <div class="flex items-center gap-4 p-4 rounded-2xl bg-white border border-slate-200 shadow-sm">
+                            <div class="w-12 h-12 bg-amber-100 text-brand-gold rounded-xl flex items-center justify-center text-xl shrink-0">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <div>
+                                <span class="text-[11px] text-slate-400 font-bold block">البريد الإلكتروني:</span>
+                                <span class="text-sm font-bold text-brand-dark">info@securetech.com</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Social Media Links -->
+                    <div>
+                        <h4 class="text-xs font-black text-brand-dark mb-3">حسابات التواصل الاجتماعي:</h4>
+                        <div class="flex flex-wrap gap-2">
+                            <a href="#" class="flex items-center gap-2 px-4 py-2.5 rounded-xl bg-white border border-slate-200 hover:bg-sky-500 hover:text-white text-slate-700 text-xs font-bold transition-all"><i class="fab fa-facebook-f"></i> Facebook</a>
+                            <a href="#" class="flex items-center gap-2 px-4 py-2.5 rounded-xl bg-white border border-slate-200 hover:bg-pink-600 hover:text-white text-slate-700 text-xs font-bold transition-all"><i class="fab fa-instagram"></i> Instagram</a>
+                            <a href="#" class="flex items-center gap-2 px-4 py-2.5 rounded-xl bg-white border border-slate-200 hover:bg-black hover:text-white text-slate-700 text-xs font-bold transition-all"><i class="fab fa-tiktok"></i> TikTok</a>
+                            <a href="#" class="flex items-center gap-2 px-4 py-2.5 rounded-xl bg-white border border-slate-200 hover:bg-red-600 hover:text-white text-slate-700 text-xs font-bold transition-all"><i class="fab fa-youtube"></i> YouTube</a>
+                            <a href="#" class="flex items-center gap-2 px-4 py-2.5 rounded-xl bg-white border border-slate-200 hover:bg-sky-700 hover:text-white text-slate-700 text-xs font-bold transition-all"><i class="fab fa-linkedin-in"></i> LinkedIn</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Contact / Quote Form -->
+                <div class="lg:col-span-7">
+                    <div class="bg-white p-8 rounded-3xl border border-slate-200 shadow-md">
+                        <h3 class="text-2xl font-black text-brand-dark mb-6">أرسل طلبك أو طلب معاينة مجانية</h3>
+                        <form onsubmit="handleContactSubmit(event)" class="space-y-4">
+                            <div class="grid sm:grid-cols-2 gap-4">
+                                <div>
+                                    <label class="block text-xs font-bold text-slate-700 mb-1">الاسم الكامل *</label>
+                                    <input type="text" required placeholder="أحمد علي" class="w-full bg-slate-50 border border-slate-300 rounded-xl p-3 text-xs focus:outline-none focus:border-brand-gold">
+                                </div>
+                                <div>
+                                    <label class="block text-xs font-bold text-slate-700 mb-1">رقم الجوال / الواتساب *</label>
+                                    <input type="tel" required placeholder="05xxxxxxxx" class="w-full bg-slate-50 border border-slate-300 rounded-xl p-3 text-xs focus:outline-none focus:border-brand-gold">
+                                </div>
+                            </div>
+
+                            <div class="grid sm:grid-cols-2 gap-4">
+                                <div>
+                                    <label class="block text-xs font-bold text-slate-700 mb-1">نوع المنشأة</label>
+                                    <select class="w-full bg-slate-50 border border-slate-300 rounded-xl p-3 text-xs focus:outline-none focus:border-brand-gold">
+                                        <option>منزل / فيلا سكنية</option>
+                                        <option>محل تجاري / متجر</option>
+                                        <option>شركة / مكتب</option>
+                                        <option>مستودع / مصنع</option>
+                                        <option>عقد صيانة واعتماد شهادة</option>
+                                    </select>
+                                </div>
+                                <div>
+                                    <label class="block text-xs font-bold text-slate-700 mb-1">المدينة / المنطقة</label>
+                                    <input type="text" placeholder="الرياض / جدة / الدمام..." class="w-full bg-slate-50 border border-slate-300 rounded-xl p-3 text-xs focus:outline-none focus:border-brand-gold">
+                                </div>
+                            </div>
+
+                            <div>
+                                <label class="block text-xs font-bold text-slate-700 mb-1">تفاصيل الرسالة والاحتياج</label>
+                                <textarea rows="4" placeholder="اكتب عدد الكاميرات أو نوع النظام المطلوب..." class="w-full bg-slate-50 border border-slate-300 rounded-xl p-3 text-xs focus:outline-none focus:border-brand-gold"></textarea>
+                            </div>
+
+                            <button type="submit" class="w-full bg-brand-dark hover:bg-slate-800 text-white font-black py-3.5 rounded-xl shadow transition-all">
+                                إرسال الطلب فوراً
+                            </button>
+                        </form>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-brand-dark text-slate-400 py-12 border-t border-slate-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row items-center justify-between gap-6 pb-8 border-b border-slate-800">
+                <div class="flex items-center gap-3">
+                    <div class="w-10 h-10 bg-brand-gold text-brand-dark rounded-xl flex items-center justify-center font-bold text-xl shadow">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <div>
+                        <span class="text-xl font-black text-white">سيكيور <span class="text-brand-gold">تيك</span></span>
+                        <p class="text-[10px] text-slate-400">SecureTech Security Systems</p>
+                    </div>
+                </div>
+
+                <div class="text-xs text-center md:text-right">
+                    جميع الحقوق محفوظة © 2026 - شركة سيكيور تيك للأنظمة الأمنية وكاميرات المراقبة.
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Floating Action Buttons -->
+    <div class="fixed bottom-6 right-6 flex flex-col gap-3 z-40">
+        <!-- Floating Phone Call Button -->
+        <a href="tel:+966500000000" class="bg-brand-dark hover:bg-slate-800 text-brand-gold w-13 h-13 rounded-full flex items-center justify-center text-xl shadow-2xl transition-transform transform hover:scale-110 border border-brand-gold/40">
+            <i class="fas fa-phone-alt"></i>
+        </a>
+
+        <!-- Floating WhatsApp Button -->
+        <a href="https://wa.me/966500000000?text=السلام%20عليكم،%20استفسار%20من%20موقع%20سيكيور%20تيك" target="_blank" class="bg-brand-emerald hover:bg-emerald-600 text-white w-14 h-14 rounded-full flex items-center justify-center text-3xl shadow-2xl transition-transform transform hover:scale-110">
+            <i class="fab fa-whatsapp"></i>
+        </a>
+    </div>
+
+    <!-- Drawer Shopping Cart (سلة التسوق التفاعلية) -->
+    <div id="cart-drawer" class="fixed inset-y-0 left-0 w-full max-w-md bg-white shadow-2xl z-50 transform -translate-x-full transition-transform duration-300 flex flex-col justify-between">
+        <div class="p-6 border-b border-slate-100 flex items-center justify-between bg-brand-dark text-white">
+            <div class="flex items-center gap-2">
+                <i class="fas fa-shopping-bag text-brand-gold"></i>
+                <h3 class="font-black text-lg">سلة طلب الأصناف</h3>
+            </div>
+            <button onclick="toggleCartDrawer()" class="text-slate-400 hover:text-white text-xl">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+
+        <!-- Cart Items List -->
+        <div id="cart-items-container" class="p-6 overflow-y-auto flex-1 space-y-4">
+            <!-- Rendered by JS -->
+        </div>
+
+        <!-- Cart Summary & WhatsApp Trigger -->
+        <div class="p-6 bg-slate-50 border-t border-slate-200 space-y-4">
+            <div class="flex justify-between items-center text-sm font-black text-brand-dark">
+                <span>إجمالي الأصناف المقدر:</span>
+                <span id="cart-total-price" class="text-2xl font-black text-brand-gold">0 ر.س</span>
+            </div>
+
+            <button onclick="sendOrderToWhatsApp()" class="w-full bg-brand-emerald hover:bg-emerald-600 text-white font-black py-3.5 rounded-xl shadow flex items-center justify-center gap-2 text-sm transition-all">
+                <i class="fab fa-whatsapp text-lg"></i>
+                <span>إرسال الطلب والسلة عبر الواتساب</span>
+            </button>
+        </div>
+    </div>
+
+    <!-- Consultation Modal -->
+    <div id="modal-consultation" class="fixed inset-0 bg-black/60 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
+        <div class="bg-white rounded-3xl max-w-md w-full p-6 space-y-6 relative shadow-2xl">
+            <button onclick="closeConsultationModal()" class="absolute top-4 left-4 text-slate-400 hover:text-slate-600">
+                <i class="fas fa-times text-xl"></i>
+            </button>
+
+            <div class="text-center space-y-1">
+                <h3 class="text-xl font-black text-brand-dark">طلب عرض سعر مباشر</h3>
+                <p class="text-xs text-slate-500">ادخل بياناتك وسيتم إرسال تسعيرة معتمدة فوراً</p>
+            </div>
+
+            <form onsubmit="handleModalSubmit(event)" class="space-y-4">
+                <div>
+                    <label class="block text-xs font-bold text-slate-700 mb-1">الاسم الكريم</label>
+                    <input type="text" required class="w-full bg-slate-50 border border-slate-200 rounded-xl p-3 text-xs focus:outline-none focus:border-brand-gold">
+                </div>
+                <div>
+                    <label class="block text-xs font-bold text-slate-700 mb-1">رقم الجوال / الواتساب</label>
+                    <input type="tel" required class="w-full bg-slate-50 border border-slate-200 rounded-xl p-3 text-xs focus:outline-none focus:border-brand-gold">
+                </div>
+                <button type="submit" class="w-full gold-gradient text-brand-dark font-black py-3 rounded-xl shadow">
+                    تأكيد الطلب
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <!-- JavaScript Data & Logic -->
+    <script>
+        // Full Product Catalog Database
+        const products = [
+            {
+                id: 1,
+                title: "كاميرا خارجية Hikvision IP 8MP 4K ColorVu",
+                category: "outdoor",
+                price: 380,
+                specs: "دقة 8MP 4K, رؤية ليلية ملونة 24/7, هيكل معدني مقاوم للطقس IP67",
+                image: "https://images.unsplash.com/photo-1557597774-9d273605dfa9?auto=format&fit=crop&w=400&q=80"
+            },
+            {
+                id: 2,
+                title: "كاميرا خارجية Dahua 4MP Analog Full HD",
+                category: "outdoor",
+                price: 190,
+                specs: "دقة 4 Megapixel, عدسة 3.6mm, رؤية بالأشعة تحت الحمراء 30 متر",
+                image: "https://images.unsplash.com/photo-1541888946425-d0fbb186a5b3?auto=format&fit=crop&w=400&q=80"
+            },
+            {
+                id: 3,
+                title: "كاميرا داخلية متحركة PTZ Smart IP 360°",
+                category: "indoor",
+                price: 290,
+                specs: "دقة 4MP, دوران 360 درجة, تتبع ذكي للحركة, صوت اتجاهين mic/speaker",
+                image: "https://images.unsplash.com/photo-1558002038-1055907df827?auto=format&fit=crop&w=400&q=80"
+            },
+            {
+                id: 4,
+                title: "كاميرا داخلية Ezviz C6N Smart Wifi",
+                category: "indoor",
+                price: 145,
+                specs: "دقة 1080p Full HD, اتصال واي فاي مباشر, فتحة كارت ميموري",
+                image: "https://images.unsplash.com/photo-1558002038-1055907df827?auto=format&fit=crop&w=400&q=80"
+            },
+            {
+                id: 5,
+                title: "جهاز تسجيل DVR Hikvision 8 Channels 4K",
+                category: "dvr",
+                price: 480,
+                specs: "يدعم 8 كاميرات Analog + IP, دقة 4K, ربط مجاني على الهاتف",
+                image: "https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?auto=format&fit=crop&w=400&q=80"
+            },
+            {
+                id: 6,
+                title: "جهاز تسجيل NVR Dahua 16 Channels PoE",
+                category: "dvr",
+                price: 890,
+                specs: "يدعم 16 كاميرا IP, منافذ PoE مباشرة, يدعم 2 هاردسك حتى 16TB",
+                image: "https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=400&q=80"
+            },
+            {
+                id: 7,
+                title: "هارد ديسك Seagate SkyHawk 2TB للمراقبة",
+                category: "hdd",
+                price: 270,
+                specs: "مخصص للعمل الشاق 24/7 لكاميرات المراقبة بدون انقطاع",
+                image: "https://images.unsplash.com/photo-1591799264318-7e6ef8ddb7ea?auto=format&fit=crop&w=400&q=80"
+            },
+            {
+                id: 8,
+                title: "هارد ديسك Western Digital Purple 4TB",
+                category: "hdd",
+                price: 490,
+                specs: "سلسلة البنفسجي المخصصة للتسجيل المتواصل عالي الدقة",
+                image: "https://images.unsplash.com/photo-1591799264318-7e6ef8ddb7ea?auto=format&fit=crop&w=400&q=80"
+            },
+            {
+                id: 9,
+                title: "نظام إنذار سرقة لاسلكي Hikvision AX PRO",
+                category: "alarm",
+                price: 1150,
+                specs: "لوحة تحكم + حساس حركة + حساس أبواب + صفارات + تطبيق جوال",
+                image: "https://images.unsplash.com/photo-1558002038-1055907df827?auto=format&fit=crop&w=400&q=80"
+            },
+            {
+                id: 10,
+                title: "جهاز بصمة حضور وانصراف ZKTeco MB20",
+                category: "alarm",
+                price: 530,
+                specs: "بصمة أصبع + بصمة وجه + كارت, برنامج إدارة عربي مجاني",
+                image: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=400&q=80"
+            },
+            {
+                id: 11,
+                title: "محول تغذية Power Supply 12V 10A (8 Cams)",
+                category: "accessories",
+                price: 95,
+                specs: "صندوق تغذية مركزي مع فيوزات حماية ضد انقطاع التيار",
+                image: "https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?auto=format&fit=crop&w=400&q=80"
+            },
+            {
+                id: 12,
+                title: "لفة كابل شبكة Cat6 Outdoor 305M",
+                category: "accessories",
+                price: 340,
+                specs: "كابل شبكة نحاس خالي من الشوائب مع شيلد خارجي مقوى",
+                image: "https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?auto=format&fit=crop&w=400&q=80"
+            }
+        ];
+
+        let cart = [];
+
+        // Render Catalog Grid
+        function renderProducts(items) {
+            const grid = document.getElementById('product-grid');
+            grid.innerHTML = '';
+
+            items.forEach(prod => {
+                grid.innerHTML += `
+                    <div class="bg-white rounded-2xl border border-slate-200 overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between group">
+                        <div>
+                            <div class="relative overflow-hidden h-48 bg-slate-100">
+                                <img src="${prod.image}" alt="${prod.title}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                                <span class="absolute top-3 right-3 bg-brand-dark/90 backdrop-blur-md text-brand-gold text-[10px] font-bold px-2.5 py-1 rounded-md">
+                                    ${getCategoryName(prod.category)}
+                                </span>
+                            </div>
+                            <div class="p-5 space-y-2">
+                                <h3 class="font-extrabold text-brand-dark text-sm sm:text-base group-hover:text-brand-gold transition-colors">${prod.title}</h3>
+                                <p class="text-xs text-slate-500 leading-relaxed">${prod.specs}</p>
+                            </div>
+                        </div>
+
+                        <div class="p-5 border-t border-slate-100 flex items-center justify-between bg-slate-50/50">
+                            <div>
+                                <span class="text-[10px] text-slate-400 block font-bold">السعر:</span>
+                                <span class="text-xl font-black text-brand-dark">${prod.price} <span class="text-xs font-bold text-slate-500">ر.س</span></span>
+                            </div>
+                            <button onclick="addToCart(${prod.id})" class="gold-gradient text-brand-dark font-black px-3.5 py-2 rounded-xl text-xs shadow transition-all flex items-center gap-1">
+                                <i class="fas fa-cart-plus"></i>
+                                <span>أضف للطلب</span>
+                            </button>
+                        </div>
+                    </div>
+                `;
+            });
+        }
+
+        function getCategoryName(cat) {
+            switch(cat) {
+                case 'outdoor': return 'كاميرات خارجية';
+                case 'indoor': return 'كاميرات داخلية';
+                case 'dvr': return 'أجهزة تسجيل';
+                case 'hdd': return 'هاردسك تخزين';
+                case 'alarm': return 'إنذار وبصمة';
+                default: return 'ملحقات وكابلات';
+            }
+        }
+
+        // Filter Categories
+        function filterCategory(cat) {
+            document.querySelectorAll('.cat-btn').forEach(btn => {
+                btn.classList.remove('bg-brand-dark', 'text-white');
+                btn.classList.add('bg-white', 'text-slate-700');
+            });
+            event.target.classList.remove('bg-white', 'text-slate-700');
+            event.target.classList.add('bg-brand-dark', 'text-white');
+
+            if(cat === 'all') {
+                renderProducts(products);
+            } else {
+                renderProducts(products.filter(p => p.category === cat));
+            }
+        }
+
+        // Search Filter
+        function filterProducts() {
+            const query = document.getElementById('search-input').value.toLowerCase();
+            const filtered = products.filter(p => p.title.toLowerCase().includes(query) || p.specs.toLowerCase().includes(query));
+            renderProducts(filtered);
+        }
+
+        // Cart Actions
+        function addToCart(productId) {
+            const prod = products.find(p => p.id === productId);
+            const existing = cart.find(item => item.id === productId);
+
+            if(existing) {
+                existing.qty += 1;
+            } else {
+                cart.push({ ...prod, qty: 1 });
+            }
+            updateCartUI();
+            toggleCartDrawer(true);
+        }
+
+        function orderPackage(pkgTitle, pkgPrice) {
+            cart.push({ id: Date.now(), title: pkgTitle, price: pkgPrice, specs: "باقة مبيعات مع التركيب والضمان", image: "https://images.unsplash.com/photo-1557597774-9d273605dfa9?auto=format&fit=crop&w=200&q=80", qty: 1 });
+            updateCartUI();
+            toggleCartDrawer(true);
+        }
+
+        function updateCartUI() {
+            const badge = document.getElementById('cart-badge');
+            const container = document.getElementById('cart-items-container');
+            const totalPriceEl = document.getElementById('cart-total-price');
+
+            const totalItems = cart.reduce((sum, item) => sum + item.qty, 0);
+            badge.innerText = totalItems;
+
+            if(cart.length === 0) {
+                container.innerHTML = `
+                    <div class="text-center py-12 space-y-3 text-slate-400">
+                        <i class="fas fa-shopping-cart text-4xl"></i>
+                        <p class="text-xs font-bold">السلة فارغة حالياً</p>
+                    </div>
+                `;
+                totalPriceEl.innerText = "0 ر.س";
+                return;
+            }
+
+            let total = 0;
+            container.innerHTML = '';
+            cart.forEach(item => {
+                total += item.price * item.qty;
+                container.innerHTML += `
+                    <div class="flex items-center justify-between p-3 bg-slate-50 border border-slate-200 rounded-xl">
+                        <div class="flex items-center gap-3">
+                            <img src="${item.image}" class="w-12 h-12 rounded-lg object-cover">
+                            <div>
+                                <h4 class="text-xs font-bold text-brand-dark">${item.title}</h4>
+                                <span class="text-xs text-brand-gold font-black">${item.price} ر.س</span>
+                            </div>
+                        </div>
+                        <div class="flex items-center gap-2">
+                            <span class="text-xs font-bold text-slate-600">الكمية: ${item.qty}</span>
+                            <button onclick="removeFromCart(${item.id})" class="text-brand-red hover:text-red-700 text-xs p-1">
+                                <i class="fas fa-trash"></i>
+                            </button>
+                        </div>
+                    </div>
+                `;
+            });
+
+            totalPriceEl.innerText = `${total.toLocaleString()} ر.س`;
+        }
+
+        function removeFromCart(id) {
+            cart = cart.filter(i => i.id !== id);
+            updateCartUI();
+        }
+
+        function toggleCartDrawer(openForce = false) {
+            const drawer = document.getElementById('cart-drawer');
+            if(openForce) {
+                drawer.classList.remove('-translate-x-full');
+            } else {
+                drawer.classList.toggle('-translate-x-full');
+            }
+        }
+
+        function sendOrderToWhatsApp() {
+            if(cart.length === 0) return alert('السلة فارغة!');
+            
+            let message = "السلام عليكم شركة سيكيور تيك، أرغب في طلب الأجهزة/الباقات التالية:\n\n";
+            let total = 0;
+            cart.forEach((item, idx) => {
+                message += `${idx + 1}. ${item.title} (الكمية: ${item.qty}) - السعر: ${item.price * item.qty} ر.س\n`;
+                total += item.price * item.qty;
+            });
+            message += `\nالمجموع الإجمالي: ${total} ريال سعودي.\nيرجى التواصل لتأكيد الطلب وتحديد موعد المعاينة/الاستلام.`;
+
+            window.open(`https://wa.me/966500000000?text=${encodeURIComponent(message)}`, '_blank');
+        }
+
+        // Calculator Logic
+        function runCalculator() {
+            const num = parseInt(document.getElementById('calc-cam-slider').value);
+            const qualityPrice = parseInt(document.getElementById('calc-quality').value);
+            const storagePrice = parseInt(document.getElementById('calc-storage').value);
+            const hasAlarm = document.getElementById('calc-alarm').checked;
+            const hasAccess = document.getElementById('calc-access').checked;
+            const hasInstall = document.getElementById('calc-install').checked;
+
+            document.getElementById('calc-cam-num').innerText = `${num} كاميرات`;
+
+            let total = (num * qualityPrice) + storagePrice;
+            if(hasAlarm) total += 550;
+            if(hasAccess) total += 500;
+            if(hasInstall) total += 400;
+
+            document.getElementById('calc-total-price').innerText = total.toLocaleString();
+        }
+
+        function sendCalculatorToWhatsApp() {
+            const num = document.getElementById('calc-cam-num').innerText;
+            const total = document.getElementById('calc-total-price').innerText;
+            const text = `السلام عليكم شركة سيكيور تيك، قمت باستخدام حاسبة التكلفة لنظام مراقبة (${num}) والتكلفة التقديرية هي ${total} ريال. أرغب في حجز المعاينة وتأكيد الطلب.`;
+            window.open(`https://wa.me/966500000000?text=${encodeURIComponent(text)}`, '_blank');
+        }
+
+        // Modals Logic
+        function openConsultationModal() {
+            document.getElementById('modal-consultation').classList.remove('hidden');
+        }
+
+        function closeConsultationModal() {
+            document.getElementById('modal-consultation').classList.add('hidden');
+        }
+
+        function handleModalSubmit(e) {
+            e.preventDefault();
+            closeConsultationModal();
+            alert('تم استلام طلب التقدير بنجاح! سيتواصل معك مهندس سيكيور تيك فوراً.');
+        }
+
+        function handleContactSubmit(e) {
+            e.preventDefault();
+            alert('تم إرسال الطلب بنجاح. شكراً لتواصلك مع سيكيور تيك.');
+            e.target.reset();
+        }
+
+        // Mobile Menu Toggle
+        document.getElementById('mobile-menu-btn').addEventListener('click', () => {
+            document.getElementById('mobile-menu').classList.toggle('hidden');
+        });
+
+        // Initialize Page
+        window.onload = function() {
+            renderProducts(products);
+            runCalculator();
+        };
+    </script>
+</body>
+</html>
